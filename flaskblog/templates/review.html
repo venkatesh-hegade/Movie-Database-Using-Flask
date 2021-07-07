@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('reviews.new_review', post_id=post.id) }}">
+                        Create Reviews
+                    </a>
+ <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('reviews.all_reviews', post_id=post.id) }}">
+                        Reviews
+                    </a> 
+                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('reviews.update_review', post_id=post.id,review_id=review.id) }}">
+                        Update
+                    </a>                    
+<article class="media content-section">
+     
+    <div class="media-body">
+        <div class="article-metadata">
+             <a class="mr-2" href={{ url_for('reviews.user_reviews',
+                            username=review.user_post.username) }}>
+                      {{ review.user_post.username }}
+                  </a> 
+         
+            
+        </div>    
+    <h2 class="article-title">{{ review.title }}</h2>
+    
+    <p class="article-content">{{ review.content }}</p>
+    
+  </div>
+ 
+<!-- Modal -->
+
+
+
+        
+ 
+
+ 
+
+                   
+{% endblock content %}

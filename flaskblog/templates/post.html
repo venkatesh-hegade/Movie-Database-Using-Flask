@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+
+
+            
+         
+            {%  if post.author == current_user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('posts.update_post', post_id=post.id) }}">
+                        Update
+                    </a> 
+                     
+                     
+                    <button type="button" class="btn btn-danger btn-sm
+                    m-1" data-toggle="modal" data-target="#deleteModal"> Delete
+                    </button>
+                </div>
+                  
+            {% endif %}
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('reviews.all_reviews', post_id=post.id) }}">
+                        Reviews
+                    </a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('reviews.new_review', post_id=post.id) }}">
+                        Create Reviews
+                    </a> 
+        </div>    
+  </div>
+
+
+<div class="moviecard">
+ 
+  <div id="movie-content">
+    <div class="movie-ratings"><span class="star">★</span><span class="score">{{post.vote_average}}</span><span class="score">(IMDB)</span></div>
+    <div class="movie-title">{{post.title}}</a><span class="movie-year">{{post.year}}</span></div>
+    <div class="movie-details"><span class="movie-duration">{{post.runtime}} Mins</span><span class="movie-genre">{{post.geners}}</span></div>
+    <div class="movie-castcrew"><span class="title">Language</span><span class="name">        {{post.language}}</span></div>
+    <div class="movie-castcrew"><span class="title">Country</span><span class="name">  {{post.country}}</span></div>
+    <div class="movie-castcrew"><span class="title">Director</span><span class="name"> {{post.director}}</span></div>
+    <div class="movie-castcrew"><span class="title">Writer</span><span class="name"> {{post.writer}}</span></div>
+    <div class="movie-castcrew"><span class="title">Cast</span><span class="name"> {{post.actor}}</span></div>
+    <div class="movie-castcrew"><span class="title">Production</span><span class="name">{{post.production}}</span></div>
+    <div class="movie-castcrew"><span class="title">Budget</span><span class="name">{{post.budget}} ₹</span></div>
+    <div class="movie-castcrew"><span class="title">Revenue</span><span class="name">{{post.revenue}} ₹</span></div>
+       <img class = "movie-poster"src="http://img.omdbapi.com/?i={{post.imdb_id}}&apikey=6a984066" alt="">
+    <div class="movie-synopsis">{{post.overview}}</div>
+ 
+  </div>
+  
+  
+      <a href="https://www.google.com/search?q={{post.title}}"><img class='image' title='Google' src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5OC42NDggNDk4LjY0OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDk4LjY0OCA0OTguNjQ4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY3OTc2OyIgZD0iTTI1NC45NTYsMEMxNzkuMzMyLDAsMTExLjkwOCwzMy4xNjgsNjYuMjI4LDg1Ljc1MmMtMTMuOTIsMTYuMDQtMjUuODQ4LDMzLjg1Ni0zNS4zMzYsNTMuMTI4DQoJbDg0LjAwOCw2NC4xNjhjOS43MzYtMjkuNTQ0LDI4LjUzNi01NC44OTYsNTMuMTItNzIuODMyQzE5Mi4zNjQsMTEyLjQ4LDIyMi4zOCwxMDIsMjU0Ljk0OCwxMDINCgljMzUuMTg0LDAsNjYuOTYsMTIuNDcyLDkxLjkyOCwzMi44NzJsNzIuNjMyLTcyLjUyOEMzNzUuMjYsMjMuOCwzMTguNTE2LDAsMjU0Ljk1NiwweiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6I0UzNDQzQTsiIGQ9Ik0zMC45LDEzOC44NzJsODQuMDA4LDY0LjE2OGM5LjczNi0yOS41NDQsMjguNTM2LTU0Ljg5Niw1My4xMi03Mi44MzINCgljMjQuMzQ0LTE3LjczNiw1NC4zNi0yOC4yMTYsODYuOTI4LTI4LjIxNmMzNS4xODQsMCw2Ni45NiwxMi40NzIsOTEuOTI4LDMyLjg3Mmw3Mi42MzItNzIuNTI4QzM3NS4yNTIsMjMuODA4LDMxOC41MTYsMCwyNTQuOTU2LDAiDQoJLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGNEQ3MkM7IiBkPSJNMTA3LjQyOCwyNDkuMzJjMC0yLjI5NiwwLjE2OC00LjU2LDAuMjcyLTYuODMyYzAuNjU2LTEzLjcyOCwzLjA5Ni0yNi45Niw3LjIwOC0zOS40NDhMMzAuOSwxMzguODcyDQoJQzE1LjQ1MiwxNzAuMjA4LDYuNDkyLDIwNS4yOTYsNS40ODQsMjQyLjQ4OGMtMC4wNjQsMi4yOC0wLjIsNC41NDQtMC4yLDYuODMyYzAsMi4yOTYsMC4xMzYsNC41NjgsMC4xOTIsNi44NDgNCgljMS4wMDgsMzcuMTQ0LDkuOTY4LDcyLjIxNiwyNS4zNzYsMTAzLjUybDgzLjk4NC02NC4yODhjLTQuMDcyLTEyLjQyNC02LjQ5Ni0yNS42LTcuMTM2LTM5LjI0DQoJQzEwNy41OTYsMjUzLjg4OCwxMDcuNDI4LDI1MS42MjQsMTA3LjQyOCwyNDkuMzJ6Ii8+DQo8Zz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojRjdCOTJCOyIgZD0iTTMwLjg2LDM1OS42ODhsODMuOTg0LTY0LjI4OGMtNC4wNzItMTIuNDI0LTYuNDk2LTI1LjYtNy4xMzYtMzkuMjQNCgkJYy0wLjEwNC0yLjI4LTAuMjcyLTQuNTQ0LTAuMjcyLTYuODQ4YzAtMi4yOTYsMC4xNjgtNC41NiwwLjI3Mi02LjgzMmMwLjY1Ni0xMy43MjgsMy4wOTYtMjYuOTYsNy4yMDgtMzkuNDQ4TDMwLjksMTM4Ljg3MiIvPg0KPC9nPg0KPHBhdGggc3R5bGU9ImZpbGw6IzU5Qzk2RTsiIGQ9Ik0zMzcuODc2LDM3NC44NDhjLTIyLjUwNCwxNC4xNzYtNTAuODQ4LDIxLjgtODIuOTIsMjEuOGMtMTguNzY4LDAtMzYuNjQ4LTMuNTY4LTUzLjEyOC05LjkxMg0KCWMtMTIuMTM2LTQuNjcyLTIzLjQ2NC0xMC45Mi0zMy44MDgtMTguNDRjLTI0LjU3Ni0xNy44OTYtNDMuMzg0LTQzLjE2OC01My4xMi03Mi42ODhsLTg0LjAwOCw2NC4xNg0KCWM5LjQ3MiwxOS4yNCwyMS4zNzYsMzcuMDMyLDM1LjI3Miw1My4wNDhjNDUuNjgsNTIuNjQsMTEzLjE1Miw4NS44MzIsMTg4Ljc5Miw4NS44MzJjMjIuODgsMCw0NS4zNjgtMy4wNTYsNjYuODQtOS4wMDgNCgljMzUuNjk2LTkuOTA0LDY4LjU5Mi0yNy44MzIsOTUuODMyLTUzLjEyOEwzMzcuODc2LDM3NC44NDh6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojNDBBNTU3OyIgZD0iTTMwLjksMzU5Ljc2OGM5LjQ3MiwxOS4yNCwyMS4zNzYsMzcuMDMyLDM1LjI3Miw1My4wNDhjNDUuNjgsNTIuNjQsMTEzLjE1Miw4NS44MzIsMTg4Ljc5Miw4NS44MzINCgljMjIuODgsMCw0NS4zNjgtMy4wNTYsNjYuODQtOS4wMDhjMzUuNjk2LTkuOTA0LDY4LjU5Mi0yNy44MzIsOTUuODMyLTUzLjEyOGwtNzkuNzYtNjEuNjU2Yy0yMi41MDQsMTQuMTc2LTUwLjg0OCwyMS44LTgyLjkyLDIxLjgNCgljLTE4Ljc2OCwwLTM2LjY0OC0zLjU2OC01My4xMjgtOS45MTJjLTEyLjEzNi00LjY3Mi0yMy40NjQtMTAuOTItMzMuODA4LTE4LjQ0Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojMEZBRUY0OyIgZD0iTTQ4Ny42MTIsMjAxLjMyaC0xNC45NjhoLTIxNS4zNnY0MS4xNjh2MTMuNjh2NDEuMTUyaDEzMS41OTJjLTYuNjk2LDMyLTI0LjkyLDYxLjA4OC01MSw3Ny41MjgNCglsNzkuNzYsNjEuNjU2YzIxLjg3Mi0yMC4zMDQsNDAuMDQtNDUuNzg0LDUzLjExMi03NS4yNTZjMTQuMzM2LTMyLjI4OCwyMi41MzYtNzAuOTYsMjIuNTM2LTExMy40NTYNCglDNDkzLjI4NCwyMzMuMDcyLDQ5MS4wMiwyMTcuMzIsNDg3LjYxMiwyMDEuMzJ6Ii8+DQo8Zz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNDA4N0VEOyIgZD0iTTQxNy42MzYsNDM2LjUwNGMyMS44NzItMjAuMzA0LDQwLjItNDYuMDcyLDUzLjI3Mi03NS41NDQNCgkJYzE0LjMzNi0zMi4yODgsMjIuNDU2LTcwLjgxNiwyMi40NTYtMTEzLjMwNGMwLTE0LjcyOC0yLjM0NC0zMC4zMzYtNS43NTItNDYuMzM2aC0xNC4zMjgiLz4NCgk8cG9seWxpbmUgc3R5bGU9ImZpbGw6IzQwODdFRDsiIHBvaW50cz0iMjU3LjI4NCwyNDEuMzIgMjU3LjI4NCwyNTYuMTY4IDI1Ny4yODQsMjk3LjMyIDM4NS4yODQsMjk3LjMyIAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" /></a>
+    
+    
+      <a href="https://en.wikipedia.org/wiki/{{post.title}}"><img class='image-2' title='Wikipedia' src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9Ijk0cHgiIGhlaWdodD0iOTRweCIgdmlld0JveD0iMCAwIDk0IDk0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5NCA5NDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTg5LDBINUMyLjIzOCwwLDAsMi4yMzgsMCw1djg0YzAsMi43NjIsMi4yMzgsNSw1LDVoODRjMi43NjIsMCw1LTIuMjM4LDUtNVY1Qzk0LDIuMjM4LDkxLjc2MiwwLDg5LDB6IE04Ni4yMzgsMjMuMzcNCgkJYy0zLjQ0MSwwLjEwNC01LjU3MiwxLjk0NS02Ljg0Miw0Ljk2MUM3Ni4yNywzNS4zOSw2Ni43MTUsNTcuNzUyLDYwLjMzOCw3Mi4zMjhjLTAuMDA4LDAuMDA1LTEuNjcyLTAuMDA1LTEuNjc2LTAuMDA4DQoJCUw0OC42MDQsNDguNjM0Yy0zLjk4MSw3LjgyLTguMzk2LDE1Ljk0MS0xMi4xNzMsMjMuNjc1Yy0wLjAyMSwwLjA0MS0xLjgyNiwwLjAxOC0xLjgyOC0wLjAwNw0KCQljLTUuNzczLTEzLjQ3Ni0xMS43NjItMjYuODYtMTcuNTYzLTQwLjMyNWMtMS4zNDYtMy4yOTItNi4wNTctOC41ODQtOS4yNzktOC41NTZjLTAuMDA0LTAuMzgxLTAuMDIxLTEuMjM0LTAuMDIzLTEuNzUxaDE5Ljg3Nw0KCQlsLTAuMDE2LDEuNzJjLTIuMzM0LDAuMTA5LTYuMzY1LDEuNTk5LTUuMzIyLDQuMTc1YzIuODAzLDYuMDUsMTIuNzIxLDI5LjQ4NCwxNS40MDQsMzUuNDMyYzEuODcxLTMuNjYsNy4wOTQtMTMuNDIxLDkuMjQ0LTE3LjU0Nw0KCQljLTEuNjg2LTMuNDYyLTcuMjU4LTE2LjM4MS04LjkzLTE5LjYzNGMtMS4yNi0yLjEyLTQuNDItMi4zODItNi44NTctMi40MThjMC4wMDItMC41NDYsMC4wMzEtMC45NjMsMC4wMTgtMS43MDhsMTcuNDc1LDAuMDU2DQoJCXYxLjU4N2MtMi4zNjUsMC4wNjUtNC42MDUsMC45NDUtMy41OTQsMy4yMDZjMi4zNTMsNC44ODEsMy43MjgsOC4zNTIsNS44ODUsMTIuODY2YzAuNjktMS4zMjIsNC4yMjItOC41NjcsNS45MDQtMTIuMzk2DQoJCWMxLjAyMS0yLjUzOS0wLjUwMi0zLjQ5My00Ljc1OS0zLjYwNmMwLjA1Ni0wLjQyLDAuMDIxLTEuMjU5LDAuMDU2LTEuNjU5bDE1LjA5LDAuMDE0bDAuMDA5LDEuNTc3DQoJCWMtMi43NzEsMC4xMDYtNS42NDIsMS41ODQtNy4xNDQsMy44NzlsLTcuMjY3LDE1LjA3YzAuNzk5LDEuOTk0LDcuNzgzLDE3LjUxNCw4LjUyMSwxOS4yMzdsMTUuMDI2LTM0LjY3OA0KCQljLTEuMDY5LTIuODA3LTQuNDc5LTMuNDM1LTUuODEyLTMuNDY2YzAuMDA4LTAuNDQ2LDAuMDEtMS4xMjgsMC4wMTQtMS42OThsMTUuNjgzLDAuMDQ2bDAuMDIyLDAuMDc4TDg2LjIzOCwyMy4zN3oiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" /></a>
+    
+    <a href="https://imdb.com/title/{{post.imdb_id}}/?ref_=fn_al_tt_1" ><img class='image-3' title='IMDB' src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDkwLjY2NyA0OTAuNjY3IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0OTAuNjY3IDQ5MC42Njc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGRkMxMDc7IiBkPSJNNTMuMzMzLDEzOC42NjdoMzg0YzI5LjQ1NSwwLDUzLjMzMywyMy44NzgsNTMuMzMzLDUzLjMzM3YxMDYuNjY3DQoJYzAsMjkuNDU1LTIzLjg3OCw1My4zMzMtNTMuMzMzLDUzLjMzM2gtMzg0QzIzLjg3OCwzNTIsMCwzMjguMTIyLDAsMjk4LjY2N1YxOTJDMCwxNjIuNTQ1LDIzLjg3OCwxMzguNjY3LDUzLjMzMywxMzguNjY3eiIvPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik05NiwzMDkuMzMzYy01Ljg5MSwwLTEwLjY2Ny00Ljc3Ni0xMC42NjctMTAuNjY3VjE5MmMwLTUuODkxLDQuNzc2LTEwLjY2NywxMC42NjctMTAuNjY3DQoJCWM1Ljg5MSwwLDEwLjY2Nyw0Ljc3NiwxMC42NjcsMTAuNjY3djEwNi42NjdDMTA2LjY2NywzMDQuNTU4LDEwMS44OTEsMzA5LjMzMyw5NiwzMDkuMzMzeiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiM0NTVBNjQ7IiBkPSJNMjI0LDMwOS4zMzNjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42Njd2LTk2aC0xLjkyTDE5MS43ODcsMzAwLjgNCgkJYy0xLjE3Miw1Ljc3My02LjgwMyw5LjUwMy0xMi41NzYsOC4zMzFjLTQuMTk4LTAuODUyLTcuNDc4LTQuMTMzLTguMzMxLTguMzMxbC0xOS42MjctOTguMTMzaC0xLjkydjk2DQoJCWMwLDUuODkxLTQuNzc2LDEwLjY2Ny0xMC42NjcsMTAuNjY3UzEyOCwzMDQuNTU4LDEyOCwyOTguNjY3VjE5MmMwLTUuODkxLDQuNzc2LTEwLjY2NywxMC42NjctMTAuNjY3SDE2MA0KCQljNS4wNy0wLjAwMSw5LjQzOSwzLjU2NiwxMC40NTMsOC41MzNsMTAuODgsNTQuNGwxMC44OC01NC40YzEuMDE0LTQuOTY3LDUuMzg0LTguNTM0LDEwLjQ1My04LjUzM0gyMjQNCgkJYzUuODkxLDAsMTAuNjY3LDQuNzc2LDEwLjY2NywxMC42Njd2MTA2LjY2N0MyMzQuNjY3LDMwNC41NTgsMjI5Ljg5MSwzMDkuMzMzLDIyNCwzMDkuMzMzeiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiM0NTVBNjQ7IiBkPSJNMjg4LDMwOS4zMzNoLTIxLjMzM2MtNS44OTEsMC0xMC42NjctNC43NzYtMTAuNjY3LTEwLjY2N1YxOTJjMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2Nw0KCQlIMjg4YzE3LjY3MywwLDMyLDE0LjMyNywzMiwzMnY2NEMzMjAsMjk1LjAwNiwzMDUuNjczLDMwOS4zMzMsMjg4LDMwOS4zMzN6IE0yNzcuMzMzLDI4OEgyODhjNS44OTEsMCwxMC42NjctNC43NzYsMTAuNjY3LTEwLjY2Nw0KCQl2LTY0YzAtNS44OTEtNC43NzYtMTAuNjY3LTEwLjY2Ny0xMC42NjdoLTEwLjY2N1YyODh6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik0zNTIsMzA5LjMzM2MtNS44OTEsMC0xMC42NjctNC43NzYtMTAuNjY3LTEwLjY2N1YxOTJjMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2Nw0KCQljNS44OTEsMCwxMC42NjcsNC43NzYsMTAuNjY3LDEwLjY2N3YxMDYuNjY3QzM2Mi42NjcsMzA0LjU1OCwzNTcuODkxLDMwOS4zMzMsMzUyLDMwOS4zMzN6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik0zNzMuMzMzLDMwOS4zMzNjLTE3LjY3MywwLTMyLTE0LjMyNy0zMi0zMnYtNDIuNjY3YzAtMTcuNjczLDE0LjMyNy0zMiwzMi0zMnMzMiwxNC4zMjcsMzIsMzINCgkJdjQyLjY2N0M0MDUuMzMzLDI5NS4wMDYsMzkxLjAwNiwzMDkuMzMzLDM3My4zMzMsMzA5LjMzM3ogTTM3My4zMzMsMjI0Yy01Ljg5MSwwLTEwLjY2Nyw0Ljc3Ni0xMC42NjcsMTAuNjY3djQyLjY2Nw0KCQljMCw1Ljg5MSw0Ljc3NiwxMC42NjcsMTAuNjY3LDEwLjY2N1MzODQsMjgzLjIyNCwzODQsMjc3LjMzM3YtNDIuNjY3QzM4NCwyMjguNzc2LDM3OS4yMjQsMjI0LDM3My4zMzMsMjI0eiIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" /></a> 
+</div>
+
+
+
+
+ 
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-dismiss="modal">Cancel</button>
+        <form action={{ url_for('posts.delete_post', post_id=post.id) }}
+                      method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+        
+ 
+
+<script src="static/style.js"></script>
+
+                   
+{% endblock content %}

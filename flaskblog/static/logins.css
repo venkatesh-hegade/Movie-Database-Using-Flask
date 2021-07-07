@@ -1,0 +1,546 @@
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, input, select, textarea {
+  
+  font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+  font-weight: 300;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  margin: 30px 0 0;
+}
+
+h1, .h1 {
+  font-size: 3.6em;
+}
+
+h2, .h2 {
+  font-size: 2.8em;
+}
+
+h3, .h3 {
+  font-size: 1.825em;
+  line-height: 1.4;
+  margin: 20px 0 0px;
+}
+
+h4, .h4 {
+  font-size: 1.6em;
+  line-height: 1.2em;
+}
+
+h5, .h5 {
+  font-size: 1.35em;
+  line-height: 1.4em;
+}
+
+h6, .h6 {
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.5em;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.5em;
+  margin-bottom: 5px;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+  color: #9A9A9A;
+  line-height: 1.5em;
+}
+
+h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
+  font-size: 60%;
+}
+
+.title,
+.card-title,
+.info-title,
+.footer-brand,
+.footer-big h5,
+.footer-big h4,
+.media .media-heading {
+  font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+}
+.title,
+.title a,
+.card-title,
+.card-title a,
+.info-title,
+.info-title a,
+.footer-brand,
+.footer-brand a,
+.footer-big h5,
+.footer-big h5 a,
+.footer-big h4,
+.footer-big h4 a,
+.media .media-heading,
+.media .media-heading a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.title-uppercase {
+  text-transform: uppercase;
+}
+
+.description {
+  color: #9A9A9A;
+}
+
+blockquote small {
+  font-style: normal;
+}
+
+.text-muted {
+  color: #DDDDDD;
+}
+
+.text-primary, .text-primary:hover {
+  color: #51cbce !important;
+}
+
+.text-info, .text-info:hover {
+  color: #51bcda !important;
+}
+
+.text-success, .text-success:hover {
+  color: #6bd098 !important;
+}
+
+.text-warning, .text-warning:hover {
+  color: #fbc658 !important;
+}
+
+.text-danger, .text-danger:hover {
+  color: #f5593d !important;
+}
+
+.glyphicon {
+  line-height: 1;
+}
+
+.heart {
+  color: #EB5E28;
+  
+}
+
+
+.footer .credits,
+.footer-nav {
+  line-height: 85px;
+}
+
+.footer .btn {
+  margin-bottom: 0;
+}
+
+.blockquote {
+  border-left: 0 none;
+  border-bottom: 1px solid #CCC5B9;
+  border-top: 1px solid #CCC5B9;
+  font-weight: 300;
+  margin: 15px 0 10px;
+  text-align: center;
+}
+
+.title {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  min-height: 32px;
+}
+
+.title.text-center {
+  margin-bottom: 50px;
+}
+
+
+
+.page-header {
+  background-color: #B2AFAB;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 999px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-header .filter::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.page-header.page-header-small {
+  min-height: 65vh !important;
+  max-height: 700px;
+}
+.page-header.page-header-xs {
+  min-height: 40vh !important;
+}
+.page-header.section-dark .content-center,
+.page-header.section-dark .category-absolute {
+  z-index: 1;
+}
+
+.page-header .motto {
+  text-align: left;
+  z-index: 3;
+  color: #fff;
+  position: relative;
+}
+
+.landing-section {
+  padding: 100px 0;
+  z-index: 1;
+}
+
+.section-buttons {
+  z-index: 1;
+}
+
+.landing-section .btn-simple {
+  padding: 0;
+}
+
+.landing-section .column {
+  padding: 0 75px 0 25px;
+}
+
+.team-player .img-circle, .team-player .img-thumbnail {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+}
+
+.contact-form {
+  margin-top: 30px;
+}
+
+.contact-form label {
+  margin-top: 15px;
+}
+
+.contact-form .btn {
+  margin-top: 30px;
+}
+
+.navbar-relative {
+  position: relative;
+  z-index: 2;
+}
+
+#register-navbar a {
+  color: #FFF;
+}
+
+.register-background .container {
+  margin-top: 11%;
+  position: relative;
+  z-index: 3;
+}
+
+.register-footer {
+  bottom: 20px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background: transparent;
+  color: #FFFFFF;
+}
+
+.register-footer .fa-heart {
+  color: #EB5E28;
+}
+
+.register-card label {
+  margin-top: 15px;
+}
+
+.register-card .title {
+  color: #B33C12;
+  text-align: center;
+}
+
+.register-card .btn {
+  margin-top: 30px;
+}
+
+.register-card .forgot {
+  text-align: center;
+}
+
+.profile-content {
+  position: relative;
+}
+
+.owner {
+  text-align: center;
+}
+
+.owner .avatar {
+  padding: 15px;
+  max-width: 180px;
+  margin: -85px auto 0;
+  display: inline-block;
+}
+
+.owner .name h4 {
+  margin-top: 10px;
+}
+
+.profile-tabs {
+  margin: 50px 0;
+  min-height: 300px;
+}
+
+#following h3 {
+  margin: 20px 0 40px 0;
+}
+
+.profile-content .tab-content .tab-pane.active {
+  height: 200px;
+}
+
+.follows .unfollow {
+  width: 15px;
+}
+
+#follows .follows .unfollow .checkbox {
+  margin-top: -15px;
+}
+
+#follows .follows h6 {
+  margin-top: 15px;
+}
+
+.follows hr {
+  margin-top: 10px;
+}
+
+.title-brand {
+  max-width: 730px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  color: #FFFFFF;
+  display: block;
+}
+.title-brand .type {
+  position: absolute;
+  font-size: 20px;
+  background: #132026;
+  padding: 6px 10px;
+  border-radius: 4px;
+  top: 0;
+  font-weight: 600;
+  margin-top: 10px;
+  right: -15px;
+}
+
+.presentation-title {
+  font-size: 8em;
+  font-weight: 700;
+  margin: 0;
+  color: #FFFFFF;
+  background: #fbf8ec;
+  background: -moz-linear-gradient(top, #FFFFFF 35%, #4e6773 100%);
+  background: -webkit-linear-gradient(top, #FFFFFF 35%, #4e6773 100%);
+  background: linear-gradient(to bottom, #FFFFFF 35%, #4e6773 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.presentation-subtitle {
+  font-size: 1.7em;
+  color: #FFFFFF;
+}
+
+.category-absolute {
+  position: absolute;
+  text-align: center;
+  top: 100vh;
+  margin-top: -60px;
+  padding: 0 15px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+}
+.category-absolute .creative-tim-logo {
+  max-width: 140px;
+  top: -2px;
+  left: 3px;
+  position: relative;
+}
+
+.fog-low {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: -35%;
+  margin-bottom: -50px;
+  width: 110%;
+  opacity: .85;
+}
+.fog-low img {
+  width: 100%;
+}
+.fog-low.right {
+  margin-left: 30%;
+  opacity: 1;
+}
+
+.page-header .content-center {
+  margin-top: 85px;
+}
+
+
+
+
+
+.tim-row{
+    margin-bottom: 20px;
+}
+
+.tim-white-buttons {
+    background-color: #777777;
+}
+.tim-title{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    min-height: 32px;
+}
+.tim-title.text-center{
+    margin-bottom: 50px;
+}
+.typography-line{
+    padding-left: 180px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+.typography-line .note{
+    bottom: 10px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    left: 0;
+    margin-left: 20px;
+    position: absolute;
+    width: 260px;
+}
+.tim-row{
+    padding-top: 50px;
+}
+.tim-row h3{
+    margin-top: 0;
+}
+.switch{
+    margin-right: 20px;
+}
+#navbar-full .navbar{
+    border-radius: 0 !important;
+    margin-bottom: 0;
+    z-index: 2;
+}
+.space{
+    height: 130px;
+    display: block;
+}
+.space-110{
+    height: 110px;
+    display: block;
+}
+.space-50{
+    height: 50px;
+    display: block;
+}
+.space-70{
+    height: 70px;
+    display: block;
+}
+.navigation-example .img-src{
+    background-attachment: scroll;
+}
+
+.main{
+    background-color: #fff;
+/*     position: relative; */
+
+}
+
+/*       Loading dots  */
+
+/*      transitions */
+
+/*       Fix bug for IE      */
+
+
+/*      layer animation          */
+
+
+/*------------------------
+  change icon size
+-------------------------*/
+.nc-icon.lg {
+  font-size: 1.33333333em;
+  vertical-align: -16%;
+}
+.nc-icon.x2 {
+  font-size: 2em;
+}
+.nc-icon.x3 {
+  font-size: 3em;
+}
+
+
+.nc-icon-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+.nc-icon-ul > li {
+  position: relative;
+}
+.nc-icon-ul > li > .nc-icon {
+  position: absolute;
+  left: -1.57142857em;
+  top: 0.14285714em;
+  text-align: center;
+}
+.nc-icon-ul > li > .nc-icon.lg {
+  top: 0;
+  left: -1.35714286em;
+}
+.nc-icon-ul > li > .nc-icon.circle,
+.nc-icon-ul > li > .nc-icon.square {
+  top: -0.19047619em;
+  left: -1.9047619em;
+}
+/*------------------------
+  spinning icons
+-------------------------*/
+
+
+
+
+
+
+
+/* all icon font classes list here */
+
