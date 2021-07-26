@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
                             url_for
                     ('reviews.new_review', post_id=post.id) }}">
@@ -15,7 +16,12 @@
                             url_for
                     ('reviews.update_review', post_id=post.id,review_id=review.id) }}">
                         Update
-                    </a>                    
+                    </a> 
+                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('posts.post', post_id=post.id,post_title=post.title) }}">
+                        GO BACK
+                    </a>                   
 <article class="media content-section">
      
     <div class="media-body">
@@ -32,14 +38,6 @@
     <p class="article-content">{{ review.content }}</p>
     
   </div>
- 
-<!-- Modal -->
-
-
-
-        
- 
-
  
 
                    
