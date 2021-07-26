@@ -160,7 +160,7 @@ def update_post(post_id):
         post_object.actor = post_form.actor.data
         db.session.commit()
         flash('Post was updated', 'success')
-        return redirect(url_for('posts.post', post_id=post_object.id))
+        return redirect(url_for('posts.post', post_id=post_object.id,post_title=post_object.title))
     elif request.method == 'GET':
         post_form.imdb_id.data = post_object.imdb_id
         post_form.title.data = post_object.title
@@ -193,7 +193,7 @@ def delete_post(post_id):
     db.session.delete(post_object)
     db.session.commit()
     flash('Post was deleted', category="success")
-    return redirect(url_for('main.home'))
+    return redirect(url_for('main.language'))
 
 
 
