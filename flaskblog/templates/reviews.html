@@ -1,8 +1,13 @@
 {% extends 'layout.html' %}
  
 {% block content %}
-
+<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{
+                            url_for
+                    ('posts.post', post_id=post.id,post_title=post.title) }}">
+                        BACK
+                    </a>
  {%  for review in reviews.items %}
+ 
         <article class="media content-section">
        
           <div class="media-body">
